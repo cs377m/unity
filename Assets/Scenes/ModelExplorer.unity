@@ -90,52 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &105551588
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 438522, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11487608, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-      propertyPath: HologramCollection
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0f5e447e22596a243a91ec34048628d1, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &350343185
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &561344824
 Prefab:
@@ -235,7 +189,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472038, guid: 986eb9aac6a478c4ea47028930568f98, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 470614, guid: 986eb9aac6a478c4ea47028930568f98, type: 2}
       propertyPath: m_LocalPosition.x
@@ -418,12 +372,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1535376311}
   originButterflyCloud: {x: 0, y: -1, z: 8}
-  minX: 0
-  maxX: 4
-  minY: -3
-  maxY: 3
+  minX: 1
+  maxX: 2
+  minY: -1
+  maxY: 1
   minZ: 2
-  maxZ: 8
+  maxZ: 4
   m_Speed: 1
   m_XScale: 1
   m_YScale: 1
@@ -449,6 +403,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!122 &1081449956
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081449953}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 3014413
+  m_Size: 0.1
 --- !u!1001 &1221385398
 Prefab:
   m_ObjectHideFlags: 0
@@ -486,7 +451,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 401514, guid: 1c64dcdb3dd75464794d8eb62b657a18, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c64dcdb3dd75464794d8eb62b657a18, type: 2}
@@ -528,7 +493,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449304, guid: 62adf19d62d644144bba4200d845566a, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 154686, guid: 62adf19d62d644144bba4200d845566a, type: 2}
       propertyPath: m_IsActive
@@ -608,6 +573,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1535376312}
   - 114: {fileID: 1535376313}
+  - 122: {fileID: 1535376314}
   m_Layer: 0
   m_Name: ButterflyContainer
   m_TagString: Untagged
@@ -627,7 +593,7 @@ Transform:
   m_Children:
   - {fileID: 1379113962}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1535376313
 MonoBehaviour:
@@ -640,6 +606,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59a5cedf2abe0349980e8d38fe29455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!122 &1535376314
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535376311}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190335
+  m_Size: 0.1
 --- !u!1001 &1654554004
 Prefab:
   m_ObjectHideFlags: 0
@@ -743,7 +720,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461510, guid: dcfff29e15ef0304dbfabcb30a37ad97, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcfff29e15ef0304dbfabcb30a37ad97, type: 2}
