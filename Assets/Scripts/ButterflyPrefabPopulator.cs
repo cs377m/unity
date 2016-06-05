@@ -40,11 +40,13 @@ public class ButterflyPrefabPopulator : MonoBehaviour {
 
     private float glowDistance = 0.9f; // The distance a user's hand has to be from a butterfly to make it glow
 
-
+    public GameObject instructionsText;
+    public float destroyTextTime = 5.0f;
 
     // Use this for initialization
     void Start() {
-        InstantiateButterflies();        
+        InstantiateButterflies();
+        Destroy(instructionsText, destroyTextTime);  
     }
 
     private void InstantiateButterflies()
@@ -140,12 +142,27 @@ public class ButterflyPrefabPopulator : MonoBehaviour {
 
     Vector3 movementD(long iter)
     {
-        if (iter < 10000) return new Vector3(0, 0, 0.01f);
-        else return new Vector3(0, 0.01f, 0);
+        //double periodInIter = heartRate
+        double periodInIter = 100;
+        double amplitude = 0.08;
+        double yMovement = amplitude * Math.Cos(2 * Math.PI * iter / periodInIter);
+        double xMovement = -1.0 * amplitude * Math.Sin(2 * Math.PI * iter / periodInIter);
+        return new Vector3((float)xMovement, (float)yMovement, 0);
     }
 
+    // "Garden" activity
     Vector3 movementE(long iter)
     {
+        //float periodInIter = (float) heartRate;
+        float periodInIter = 100;
+        float amplitude = 0.08f;
+        float pseudoPhase = (iter % (int)periodInIter) / periodInIter;
+
+        return new Vector3(Mathf.Sin(pseudoPhase * m_2PI) * amplitude,
+                        Mathf.Cos(pseudoPhase * m_2PI) * amplitude,
+                        Mathf.Sin(pseudoPhase* m_2PI) * amplitude * 0.2f);
+
+
         //m_PivotOffset[i] = Vector3.up * 2 * m_YScale;
 
         //m_Phase[i] += m_Speed * Time.deltaTime;
@@ -161,8 +178,8 @@ public class ButterflyPrefabPopulator : MonoBehaviour {
         //    new Vector3(Mathf.Sin(m_Phase[i]) * m_XScale,
         //                Mathf.Cos(m_Phase[i]) * (m_Invert[i] ? -1 : 1) * m_YScale,
         //                Mathf.Sin(m_Phase[i]*3) * m_ZScale);
-        if (iter < 10000) return new Vector3(0, 0, 0.01f);
-        else return new Vector3(0, 0.01f, 0);
+        //if (iter < 10000) return new Vector3(0, 0, 0.01f);
+        //else return new Vector3(0, 0.01f, 0);
     }
 
     private Vector3 getMovementIncrement(long updateIter)

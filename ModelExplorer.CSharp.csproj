@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\InteractibleAction.cs" />
     <Compile Include="Assets\Scripts\InteractibleManager.cs" />
     <Compile Include="Assets\Scripts\MovingObject.cs" />
+    <Compile Include="Assets\Scripts\OffscreenScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Butterfly (Animated)\Butterfly (Animated).txt" />

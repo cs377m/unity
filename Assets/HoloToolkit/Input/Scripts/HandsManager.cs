@@ -68,11 +68,16 @@ public class HandsManager : Singleton<HandsManager>
         HandDetected = true;
         // This code runs when we have a hand come on the screen
         audioSource.Play();
+        GameObject spaceAudio = GameObject.Find("SpaceAudioSource");
+        spaceAudio.GetComponent<AudioSource>().volume = 1.0f;
     }
 
     private void InteractionManager_SourceLost(InteractionSourceState hand)
     {
         HandDetected = false;
+        GameObject spaceAudio = GameObject.Find("SpaceAudioSource");
+        spaceAudio.GetComponent<AudioSource>().volume = 0.5f;
+        audioSource.Play();
 
         // 2.a: Reset FocusedGameObject.
         ResetFocusedGameObject();
