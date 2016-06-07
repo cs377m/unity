@@ -33,8 +33,8 @@ public class ButterflyPrefabPopulator : MonoBehaviour {
 
     private Color highlightColor = new Color(255, 0, 0, 1);
 
-    private int heartRate;
-    private int movementMode = 2; // THIS CONTROLS WHICH movement code we use below (1=A, 2=B, ...)
+    private int heartRate = 70;
+    private int movementMode = 1; // THIS CONTROLS WHICH movement code we use below (1=A, 2=B, ...)
 
     private long updateIter = 0;
 
@@ -90,10 +90,29 @@ public class ButterflyPrefabPopulator : MonoBehaviour {
         }
     }
 
+    IEnumerator WaitForRequestActivity(WWW www)
+    {
+        yield return www;
+
+        // check for errors
+        if (www.error == null)
+        {
+            Debug.Log("WWW Ok!: " + www.data);
+            if (Int32.Parse(www.text) != 57)
+            {
+                movementMode = Int32.Parse(www.text);
+            }
+        }
+        else
+        {
+            Debug.Log("WWW Error: " + www.error);
+        }
+    }
+
     Vector3 movementA(long iter)
     {
-        //double periodInIter = heartRate
-        double periodInIter = 100;
+        double periodInIter = heartRate;
+        //double periodInIter = 100;
         double amplitude = 0.08;
         double movement = amplitude*Math.Sin(2 * Math.PI * iter / periodInIter);
         return new Vector3(0, (float)movement, 0);
@@ -207,7 +226,12 @@ public class ButterflyPrefabPopulator : MonoBehaviour {
 
         WWW www = new WWW("http://ec2-54-165-135-172.compute-1.amazonaws.com/get_hr");
         StartCoroutine(WaitForRequest(www));
+
+        WWW www2 = new WWW("http://ec2-54-165-135-172.compute-1.amazonaws.com/get_activity");
+        StartCoroutine(WaitForRequestActivity(www2));
+
         Debug.Log("HEART RATE: " + heartRate);
+        Debug.Log("MOVEMENT MODE: " + movementMode);
 
         Vector3 currentHandPosition = GestureAction.gesturePosition;
 
